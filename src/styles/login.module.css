@@ -1,0 +1,33 @@
+.container{
+    text-align: center;
+    color: #2C2E2E;
+    margin-top: 20vh;
+    
+}
+.title{
+    border-bottom: 1px solid #2C2E2E;
+}
+.form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #2C2E2E;
+    padding: 3rem;
+    max-width: 80vw;
+    gap: 0.3rem;
+
+}
+.button{
+height: 2rem;
+width: 5rem;
+}
+.input{
+    text-align: center;
+    height: 3rem;
+    width: 60vw;
+    max-width: 14rem;
+}
+.new{
+    font-size: 1rem;
+}

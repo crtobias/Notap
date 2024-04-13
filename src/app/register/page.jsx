@@ -3,6 +3,7 @@ import axios, { AxiosError } from "axios";
 import { useState } from "react";
 import {signIn} from "next-auth/react"
 import { useRouter } from "next/navigation";
+import styles from "../../styles/registe.module.css"
 
 export default function RegisterPage(){
 
@@ -17,7 +18,7 @@ export default function RegisterPage(){
         const formData = new FormData(e.currentTarget)
 
         
- 
+
         try {
             const res =await axios.post('/api/auth/signup',{
                 email: formData.get('email'),
@@ -45,16 +46,16 @@ export default function RegisterPage(){
     }
 
     return(
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className={styles.container}>
+                <h1 className={styles.title}>Signup</h1>
+            <form className={styles.form} onSubmit={handleSubmit}>
                 {error && <div>
                     {error}
                     </div>}
-                <h1>Signup</h1>
-                <input type="text" placeholder="User" name="fullname"/>
-                <input type="email" placeholder="some@mail.com" name="email"/>
-                <input type="password" placeholder="*******" name="password" />
-                <button>
+                <input className={styles.input} type="text" placeholder="User" name="fullname"/>
+                <input className={styles.input}  type="email" placeholder="some@mail.com" name="email"/>
+                <input className={styles.input}  type="password" placeholder="*******" name="password" />
+                <button className={styles.button} >
                     register
                 </button>
             </form>

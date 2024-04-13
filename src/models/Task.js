@@ -1,5 +1,6 @@
 
 
+
 import { Schema,model, models } from "mongoose";
 
 const taskSchema = new Schema({
@@ -25,3 +26,4 @@ const taskSchema = new Schema({
 
 export default models.Task || model('Task', taskSchema)
 // models.task dice que si existe lo use y sino que lo crea
+

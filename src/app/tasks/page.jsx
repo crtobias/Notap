@@ -8,16 +8,17 @@ import { useEffect, useState } from 'react';
 export default function HomePage() {
   const [tasks, setTasks] = useState([]);
 
-  const { data: session } = useSession(); 
+  const { data: session } = useSession();
 
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        
+
         if (session) {
           const userId = session.user._id; // Accedemos a session.user._id
           const response = await axios.get(`http://localhost:3000/api/usertasks/${userId}`);
           console.log(response.data);
+
           setTasks(response.data)
         }
       } catch (error) {
@@ -26,28 +27,36 @@ export default function HomePage() {
     };
 
     fetchTasks();
-  }, [session]); 
+  }, [session]);
 
-  
+
 
   return (
     <div className={styles.allcontainer}>
       <h1 className={styles.title}>MY NOTES</h1>
-      <Link href="/tasks/new">
-        <button className={styles.button}>ADD NOTE+</button>
-      </Link>
+
       <section className={styles.containernote}>
 
-      {tasks.map(task => (
-        <Link href={`/tasks/${task._id}`}>
+        {tasks.map(task => (
           <div key={task._id} className={styles.card}>
             <h3>{task.title}</h3>
             <p>{task.description}</p>
+            <Link href={`/tasks/${task._id}`}>
+              <button>Edit</button>
+            </Link>
           </div>
-        </Link>
-      ))}
+        ))}
 
       </section>
+
+
+      <div className={styles.navfake}>
+        <button>hola</button>
+        <Link href="/tasks/new">
+          <button className={styles.button}>ADD NOTE+</button>
+        </Link>
+        <button>hola</button>
+      </div>
     </div>
   );
 }

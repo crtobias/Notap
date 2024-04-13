@@ -1,5 +1,5 @@
 .container{
-    background-color: rgb(69, 69, 69);
+    background-color: #DFD9C9;
     margin: 0px;
     padding: 0px;
     width: 100vw;
@@ -7,6 +7,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    color: #2C2E2E;
 }
 
